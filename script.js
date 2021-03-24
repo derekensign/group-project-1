@@ -22,3 +22,4 @@ const addWine = async (name='', year=0, grapes='',country='', region='', descrip
         })
     })
 }
+console.log('hello')

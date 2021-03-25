@@ -9,13 +9,15 @@ addWineForm.addEventListener('submit', (event) => {
         addWineSubmit.push(addWineForm[i].value)
     }
 
-    // console.log(`addWineSubmit equals ${addWineSubmit}`)
-    // addWineForm.foreach(element => {
-    //     console.log(element.value)
-    // })
+    let wineInfo = document.querySelector('.wineinfo')
+    while(wineInfo.firstChild !== null) {
+        wineInfo.removeChild(wineInfo.lastChild)
+    }
 
     addWine(addWineSubmit)
     getWines()
+    //clear form
+    document.getElementById('addWine').reset()
     event.preventDefault()
 })
 
@@ -68,7 +70,7 @@ const getWines = async () => {
             const wineTitleModal = document.querySelector('.winetitlemodal')
             const wineImageModal = document.querySelector('.wineimagemodal')
             const wineYearModal = document.querySelector('.wineyearmodal')
-            const wineGrapesmodal =document.querySelector('.grapesmodal')
+            const wineGrapesmodal = document.querySelector('.grapesmodal')
             const wineCountryModal = document.querySelector('.countrymodal')
             const wineRegionModal = document.querySelector('.regionmodal')
             const wineDescModal = document.querySelector('.descriptionmodal')
@@ -106,7 +108,7 @@ const getWineById = async id => {
     let data = await response.json()
 }
 
-const addWine = async ([name=required('name'), year=0, grapes='N/A',country='N/A', region='N/A', description='N/A', picture='N/A', price=0]) => {
+const addWine = async ([name=required('name'), year=required('year'), grapes=required('Grapes'), country=required('Country'), region=required('Region'), description=required('description'), picture='N/A', price=0]) => {
     let response = await fetch('http://myapi-profstream.herokuapp.com/api/21a11f/wines', {
         method: 'POST',
         headers: {

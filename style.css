@@ -1,22 +1,25 @@
 /* * {
-    border:1px solid white;
+    border: 0.1px solid white;
 } */
 
 body {
     background-image: url("./Image/background\ bw.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
 }
 
+
+h1{
+    font-family:fantasy;
+    text-align: left;
+}
 
 .wineinfo {
     width: 800px;
     display: flex;
     flex-wrap: wrap;
+    align-items: center; 
+    margin: auto;
     
 }
 
@@ -29,7 +32,7 @@ body {
     align-items: center;
     text-align: center;
     background-color: white;
-    margin: 5px 5px 5px 5px;
+    margin: 5px 10px 5px 10px;
     padding-top: 10px;
     border-radius: 10%;
 }

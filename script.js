@@ -90,7 +90,6 @@ const getWines = async () => {
             }
             deleteButton.onclick = () => {
                 deleteWineById(data[i].id)
-                location.reload()
             }
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = event => {
@@ -108,6 +107,20 @@ const getWineById = async id => {
 }
 
 const addWine = async ([name, year, grapes, country, region, description, picture, price]) => {
+    let arr = [name, year, grapes, country, region, description, picture, price]
+    let errorStatus = false
+    for(let i of arr) {
+        if(i === '') {
+            alert('All fields must have input to add a new wine!')
+            errorStatus = true
+            break
+        }
+    }
+    if(arr[1] !== typeof(0) || arr[7] !== typeof(0)) {
+        alert('Year and price must be a Number!')
+        errorStatus = true
+    }
+    if(!errorStatus) {
     try {
         let response = await fetch('http://myapi-profstream.herokuapp.com/api/21a11f/wines', {
             method: 'POST',
@@ -125,48 +138,19 @@ const addWine = async ([name, year, grapes, country, region, description, pictur
                 "price": price
             })
         })
-        getWines()
     } catch (error) {
         console.log(error.message)
+        }
     }
-    // let arr = [name, year, grapes, country, region, description, picture, price]
-    // let errorStatus = false
-    // for(let i of arr) {
-    //     if(i === '') {
-    //         alert('All fields must have input to add a new wine!')
-    //         errorStatus = true
-    //         break
-    //     }
-    // }
-    // if(arr[1] !== typeof(num)) {
-    //     console.log('not a number')
-    //     errorStatus = true
-    // }
-    // // Make sure all fields are have input if not dont post
-    // if(!errorStatus) {
-    //     let response = await fetch('http://myapi-profstream.herokuapp.com/api/21a11f/wines', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //             "name": name,
-    //             "year": year,
-    //             "grapes": grapes,
-    //             "country": country,
-    //             "region": region,
-    //             "description": description,
-    //             "picture": picture,
-    //             "price": price
-    //         })
-    //     })
-    }
+getWines()
+}
 //}
 
 const deleteWineById = async id => {
     let response = await fetch(`http://myapi-profstream.herokuapp.com/api/21a11f/wines/${id}`, {
         method: 'DELETE'
     })
+    location.reload()
 }
 
 getWines()

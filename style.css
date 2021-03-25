@@ -1,51 +1,49 @@
 /* * {
-    border:1px solid white;
+    border: 0.1px solid white;
 } */
 
 body {
     background-image: url("./Image/background\ bw.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
+
 }
 
+
+h1{
+    font-family:fantasy;
+    text-align: left;
+}
 
 .wineinfo {
-    width: 800px;
+    width: 700px;
+    height: auto;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
+    text-align: center;
+    align-items: center; 
+    margin: auto;
+    padding: auto;
     
-}
-
-.deletewine {
-    margin-top: 20px;
-    width: 10%;
-    height: 20px;
 }
 
 .winediv {
     /* border: 1px solid red; */
-    width: 180px;
-    height: 210px;
+    width: 200px;
+    height: 220px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     background-color: white;
-    margin: 5px 5px 5px 5px;
+    margin: 5px 10px 5px 10px;
     padding-top: 10px;
     border-radius: 10%;
 }
 
-.winediv:hover {
-    cursor: pointer;
-}
-
 .winediv img {
-    width: 80px;
+    width: 130px;
     height: 150px;
 }
 
@@ -67,6 +65,25 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+.create-wine-form {
+    border: 1px solid white;
+    width: 700px;
+    height: 300px;
+    background-color: white;
+    border-radius: 10px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+}
+
+form {
+    margin: auto;
+}
+input {
+    width: 200px;
 }
 
 
@@ -91,6 +108,7 @@ body {
     padding: 20px;
     border: 1px solid #888;
     width: 70%; /* Could be more or less, depending on screen size */
+    text-align: center;
   }
   
   /* The Close Button */

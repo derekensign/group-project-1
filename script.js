@@ -2,7 +2,7 @@ document.querySelector('.allwines').addEventListener('click', () => {
     getWines()
 })
 
-
+// Function to require an input if they are adding wine
 const required = varName => {
     throw new Error(`${varName} is required. `);
 }
@@ -10,31 +10,29 @@ const required = varName => {
 const getWines = async () => {
     let response = await fetch('http://myapi-profstream.herokuapp.com/api/21a11f/wines')
     let data = await response.json()
-
+    
     for(let i = 0; i < data.length; i++) {
         let newDiv = document.createElement('div')
         let newName = document.createElement('h5')
         let newImage = document.createElement('img')
-        let newYear = document.createElement('p')
-        let newGrapes = document.createElement('p')
         let newCountry = document.createElement('p')
-        let newRegion = document.createElement('p')
-        let newDesc = document.createElement('p')
-        let price = document.createElement('p')
-        let elementArr = [newName,newImage,newYear,newGrapes,newCountry,newRegion,newDesc,price]
-        for (let element of elementArr) {
-            newDiv.appendChild(element)
-        }
+        newDiv.appendChild(newImage)
+        newDiv.appendChild(newName)
+        newDiv.appendChild(newCountry)
         newName.innerText = data[i].name
         newImage.src = data[i].picture
-        newYear.innerText = 'Year: ' + data[i].year
-        newGrapes.innerText = 'Grapes: ' + data[i].grapes
-        newCountry.innerText = 'Country: ' + data[i].country
-        newRegion.innerText = 'Region: ' + data[i].region
-        newDesc.innerText = 'Description: ' + data[i].description
-        price.innerText = 'Price: ' + data[i].price
+        newCountry.innerText = data[i].country
+        
         newDiv.classList.add("winediv")
         document.querySelector('.wineinfo').appendChild(newDiv)
+    }
+    
+    // Event listener for each div
+    let wineDivs = document.querySelectorAll('.winediv')
+    for(let i = 0; i < wineDivs.length; i++) {
+        wineDivs[i].addEventListener('click', () => {
+            console.log('hi')
+        })
     }
 }
 
@@ -68,5 +66,4 @@ const deleteWineById = async id => {
     })
 }
 
-
-console.log('hello')
+getWines()

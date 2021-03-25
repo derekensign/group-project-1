@@ -9,10 +9,6 @@ addWineForm.addEventListener('submit', (event) => {
         addWineSubmit.push(addWineForm[i].value)
     }
 
-    // console.log(`addWineSubmit equals ${addWineSubmit}`)
-    // addWineForm.foreach(element => {
-    //     console.log(element.value)
-    // })
     let wineInfo = document.querySelector('.wineinfo')
     while(wineInfo.firstChild !== null) {
         wineInfo.removeChild(wineInfo.lastChild)

@@ -8,11 +8,8 @@
     <script src='script.js' defer></script>
 </head>
     <body>
-        
-            <h1>INDEX OF ALL WINES</h1>
-        <div class="wineinfo">   
-        </div>
-        
+        <h1>INDEX OF ALL WINES</h1>
+    
         <div class='top'>
             <div class="buttons">
             <button class="allwines">ALL WINES</button>
@@ -20,17 +17,20 @@
              </div> 
         </div>
         
+        <div class="wineinfo">   
+        </div>
+    
         <div class="create-wine-form">
               <form action="/addWine" method="post" id="addWine">
-                <input class="input-box" type="text" name="name" placeholder="Name of Wine">
-                 <input class="input-box" type="text" name="year" placeholder="2010">
-                  <input class="input-box" type="text" name="grapes" placeholder="Pinot Noir">
-                 <input class="input-box" type="text" name="country" placeholder="France">
-                  <input class="input-box" type="text" name="region" placeholder="Burgundy">
-                  <input class="input-box" type="text" name="description" placeholder="Description">
-                  <input class="input-box" type="text" name="picture" placeholder="www.grapesRus.com/PinotNoir.jpg">
-                 <input class="input-box" type="text" name="price" placeholder="40">
-                <input type="submit" value="Add Wine">
+                <div class="index"><input type="text" name="name" placeholder="Name of Wine"></div>
+                <div class="index"><input type="text" name="year" placeholder="2010"></div>
+                <div class="index"> <input type="text" name="grapes" placeholder="Pinot Noir"></div>
+                <div class="index"> <input type="text" name="country" placeholder="France"></div>
+                <div class="index"> <input type="text" name="region" placeholder="Burgundy"></div>
+                <div class="index"> <input type="text" name="description" placeholder="Description"></div>
+                <div class="index"> <input type="text" name="picture" placeholder="www.grapesRus.com/PinotNoir.jpg"></div>
+                <div class="index"><input type="text" name="price" placeholder="40"></div>
+                <div class="index"> <input type="submit" value="Add Wine"></div>
                </form>
         </div>
 
@@ -48,6 +48,7 @@
                 <p class='regionmodal'></p>
                 <p class='descriptionmodal'></p>
                 <p class='pricemodal'></p>
+                <button class='deletewine'>Delete Wine</button>
             </div>
 
         </div>

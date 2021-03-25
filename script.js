@@ -1,3 +1,27 @@
+let addWineForm = document.getElementById('addWine')
+
+
+addWineForm.addEventListener('submit', (event) => {
+
+    let addWineSubmit = []
+
+    for(let i = 0; i < (addWineForm.length - 1); i++) {
+        addWineSubmit.push(addWineForm[i].value)
+    }
+
+    // console.log(`addWineSubmit equals ${addWineSubmit}`)
+    // addWineForm.foreach(element => {
+    //     console.log(element.value)
+    // })
+
+    addWine(addWineSubmit)
+    
+    event.preventDefault()
+})
+
+console.log(addWineForm)
+
+
 document.querySelector('.allwines').addEventListener('click', () => {
     getWines()
 })
@@ -41,7 +65,7 @@ const getWineById = async id => {
     let data = await response.json()
 }
 
-const addWine = async (name=required('name'), year=0, grapes='N/A',country='N/A', region='N/A', description='N/A', picture='N/A', price=0) => {
+const addWine = async ([name=required('name'), year=0, grapes='N/A',country='N/A', region='N/A', description='N/A', picture='N/A', price=0]) => {
     let response = await fetch('http://myapi-profstream.herokuapp.com/api/21a11f/wines', {
         method: 'POST',
         headers: {

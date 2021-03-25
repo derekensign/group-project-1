@@ -6,6 +6,7 @@ body {
     background-image: url("./Image/background\ bw.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+
 }
 
 
@@ -16,10 +17,14 @@ h1{
 
 .wineinfo {
     width: 800px;
+    height: auto;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
+    text-align: center;
     align-items: center; 
     margin: auto;
+    padding: auto;
     
 }
 
@@ -62,7 +67,10 @@ h1{
     text-align: center;
 }
 
-
+.create-wine-form{
+    display: flex;
+    flex-direction: column;
+}
 
 
 

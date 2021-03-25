@@ -23,6 +23,10 @@ console.log(addWineForm)
 
 
 document.querySelector('.allwines').addEventListener('click', () => {
+    let wineInfo = document.querySelector('.wineinfo')
+    while(wineInfo.firstChild !== null) {
+        wineInfo.removeChild(wineInfo.lastChild)
+    }
     getWines()
 })
 
@@ -34,7 +38,7 @@ const required = varName => {
 const getWines = async () => {
     let response = await fetch('http://myapi-profstream.herokuapp.com/api/21a11f/wines')
     let data = await response.json()
-    
+    console.log(data)
     for(let i = 0; i < data.length; i++) {
         let newDiv = document.createElement('div')
         let newName = document.createElement('h5')

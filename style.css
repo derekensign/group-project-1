@@ -1,13 +1,36 @@
-* {
-    border:1px;
+/* * {
+    border:1px solid white;
+} */
+
+body {
+    background-image: url("./Image/background\ bw.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+img {
+    opacity: 0.5;
+}
+
 
 .winediv {
     border: 2px solid red;
 }
 
+.main {
+    width: 500px;
+    height: 350px;
+    align-items: center;
+    margin-top: 100px;
+    background-color: gray;
+    opacity: 0.5;
+}
 
-
+.top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
 
 

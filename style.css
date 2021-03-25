@@ -6,14 +6,41 @@ body {
     background-image: url("./Image/background\ bw.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-}
-img {
-    opacity: 0.5;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
 }
 
+
+.wineinfo {
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
 
 .winediv {
-    border: 2px solid red;
+    /* border: 1px solid red; */
+    width: 180px;
+    height: 210px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    margin: 5px 5px 5px 5px;
+    padding-top: 10px;
+    border-radius: 10%;
+}
+
+.winediv img {
+    width: 80px;
+    height: 150px;
+}
+
+.winediv h5, p {
+    margin: 0;
 }
 
 .main {

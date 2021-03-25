@@ -11,12 +11,13 @@ body {
 
 
 h1{
-    font-family:fantasy;
+    font-family: fantasy;
     text-align: left;
+    margin-bottom: 10px;
 }
 
 .wineinfo {
-    width: 700px;
+    width: 600px;
     height: auto;
     display: flex;
     flex-direction: row;
@@ -30,7 +31,7 @@ h1{
 
 .winediv {
     /* border: 1px solid red; */
-    width: 200px;
+    width: 180px;
     height: 220px;
     display: flex;
     flex-direction: column;
@@ -38,7 +39,7 @@ h1{
     text-align: center;
     background-color: white;
     margin: 5px 10px 5px 10px;
-    padding-top: 10px;
+    padding-top: 30px;
     border-radius: 10%;
 }
 
@@ -61,31 +62,51 @@ h1{
 }
 
 .top {
+    width: 580px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    margin: 0 0 0 10px;
+}
+
+.top button {
+    width: 180px;
+    height: 30px;
+    border-radius: 5px;
 }
 
 .create-wine-form {
-    border: 1px solid white;
-    width: 700px;
-    height: 300px;
+    /* border: 1px solid white; */
+    width: 580px;
+    height: 350px;
     background-color: white;
     border-radius: 10px;
     display:flex;
+    flex-wrap: wrap;
     flex-direction: column;
-    align-items: center;
     margin: 20px auto;
+}
+
+h2 {
+    padding-left: 10px;
 }
 
 form {
     margin: auto;
-}
-input {
-    width: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
 }
 
+input {
+    width: 250px;
+    height: 30px;
+    margin: 10px 0 10px 20px;
+}
+.index2 {
+    margin:auto;
+
+}
 
 /* The Modal (background) */
 .modal {
@@ -109,6 +130,7 @@ input {
     border: 1px solid #888;
     width: 70%; /* Could be more or less, depending on screen size */
     text-align: center;
+    border-radius: 10px;
   }
   
   /* The Close Button */

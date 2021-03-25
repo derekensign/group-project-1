@@ -73,6 +73,7 @@ const getWines = async () => {
             const wineRegionModal = document.querySelector('.regionmodal')
             const wineDescModal = document.querySelector('.descriptionmodal')
             const winePriceModal = document.querySelector('.pricemodal')
+            const deleteButton = document.querySelector('.deletewine')
             wineTitleModal.innerText = data[i].name
             wineImageModal.src = data[i].picture
             wineYearModal.innerText = 'Year: ' + data[i].year
@@ -85,6 +86,10 @@ const getWines = async () => {
             // When the user clicks on <span> (x), close the modal
             span.onclick = () => {
                 modal.style.display = "none";
+            }
+            deleteButton.onclick = () => {
+                deleteWineById(data[i].id)
+                location.reload()
             }
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = event => {

@@ -20,6 +20,12 @@ body {
     
 }
 
+.deletewine {
+    margin-top: 20px;
+    width: 10%;
+    height: 20px;
+}
+
 .winediv {
     /* border: 1px solid red; */
     width: 180px;
@@ -32,6 +38,10 @@ body {
     margin: 5px 5px 5px 5px;
     padding-top: 10px;
     border-radius: 10%;
+}
+
+.winediv:hover {
+    cursor: pointer;
 }
 
 .winediv img {

@@ -15,7 +15,7 @@ addWineForm.addEventListener('submit', (event) => {
     // })
 
     addWine(addWineSubmit)
-    
+    getWines()
     event.preventDefault()
 })
 
@@ -58,8 +58,40 @@ const getWines = async () => {
     // Event listener for each div
     let wineDivs = document.querySelectorAll('.winediv')
     for(let i = 0; i < wineDivs.length; i++) {
-        wineDivs[i].addEventListener('click', () => {
-            console.log('hi')
+        wineDivs[i].addEventListener('click', (e) => {
+            // Get the modal
+            let modal = document.getElementById("myModal");
+            // Get the <span> element that closes the modal
+            let span = document.getElementsByClassName("close")[0];
+            
+            //Modal elements and information
+            const wineTitleModal = document.querySelector('.winetitlemodal')
+            const wineImageModal = document.querySelector('.wineimagemodal')
+            const wineYearModal = document.querySelector('.wineyearmodal')
+            const wineGrapesmodal =document.querySelector('.grapesmodal')
+            const wineCountryModal = document.querySelector('.countrymodal')
+            const wineRegionModal = document.querySelector('.regionmodal')
+            const wineDescModal = document.querySelector('.descriptionmodal')
+            const winePriceModal = document.querySelector('.pricemodal')
+            wineTitleModal.innerText = data[i].name
+            wineImageModal.src = data[i].picture
+            wineYearModal.innerText = 'Year: ' + data[i].year
+            wineGrapesmodal.innerText = 'Grapes: ' + data[i].grapes
+            wineCountryModal.innerText = 'Country: ' + data[i].country
+            wineRegionModal.innerText = 'Region: ' + data[i].region
+            wineDescModal.innerText = 'Description: ' + data[i].description
+            winePriceModal.innerText = 'Price: $' + data[i].price
+            modal.style.display = "block";
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = () => {
+                modal.style.display = "none";
+            }
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = event => {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                }
+            }
         })
     }
 }

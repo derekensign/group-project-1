@@ -10,9 +10,6 @@
     <body>
         <h1>INDEX OF ALL WINES</h1>
     
-        <div class="wineinfo">   
-        </div>
-        
         <div class='top'>
             <div class="buttons">
             <button class="allwines">ALL WINES</button>
@@ -20,19 +17,42 @@
              </div> 
         </div>
         
-        <div class="create-wine-form">
-              <form action="/addWine" method="post" id="addWine">
-                <input type="text" name="name" placeholder="Name of Wine">           
-                <input type="text" name="year" placeholder="2010">
-                <input type="text" name="grapes" placeholder="Pinot Noir">
-                <input type="text" name="country" placeholder="France">
-                <input type="text" name="region" placeholder="Burgundy">
-                <input type="text" name="description" placeholder="Description">
-                <input type="text" name="picture" placeholder="www.grapesRus.com/PinotNoir.jpg">
-                <input type="text" name="price" placeholder="40">
-                <input type="submit" value="Add Wine">
-               </form>
+        <div class="wineinfo">   
         </div>
     
+        <div class="create-wine-form">
+              <form action="/addWine" method="post" id="addWine">
+                <div class="index"><input type="text" name="name" placeholder="Name of Wine"></div>
+                <div class="index"><input type="text" name="year" placeholder="2010"></div>
+                <div class="index"> <input type="text" name="grapes" placeholder="Pinot Noir"></div>
+                <div class="index"> <input type="text" name="country" placeholder="France"></div>
+                <div class="index"> <input type="text" name="region" placeholder="Burgundy"></div>
+                <div class="index"> <input type="text" name="description" placeholder="Description"></div>
+                <div class="index"> <input type="text" name="picture" placeholder="www.grapesRus.com/PinotNoir.jpg"></div>
+                <div class="index"><input type="text" name="price" placeholder="40"></div>
+                <div class="index"> <input type="submit" value="Add Wine"></div>
+               </form>
+        </div>
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Open Modal</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1 class='winetitlemodal'>Some text in the Modal..</span></h1>
+                <img src='' class='wineimagemodal'>
+                <p class='wineyearmodal'>0</p>
+                <p class='grapesmodal'></p>
+                <p class='countrymodal'></p>
+                <p class='regionmodal'></p>
+                <p class='descriptionmodal'></p>
+                <p class='pricemodal'></p>
+            </div>
+
+        </div>
+      
     </body>
 </html>

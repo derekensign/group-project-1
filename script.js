@@ -13,26 +13,26 @@ const getWines = async () => {
 
     for(let i = 0; i < data.length; i++) {
         let newDiv = document.createElement('div')
-        let newName = document.createElement('h5')//.innerHTML = data[i].name
-        let newImage = document.createElement('img')//.src = data[i].picture
-        let newYear = document.createElement('p')//.textContent = data[i].year
-        let newGrapes = document.createElement('p')//.textContent = data[i].grapes
-        let newCountry = document.createElement('p')//.textContent = data[i].country
-        let newRegion = document.createElement('p')//.textContent = data[i].region
-        let newDesc = document.createElement('p')//.textContent = data[i].description
-        let price = document.createElement('p')//.textContent = data[i].price
+        let newName = document.createElement('h5')
+        let newImage = document.createElement('img')
+        let newYear = document.createElement('p')
+        let newGrapes = document.createElement('p')
+        let newCountry = document.createElement('p')
+        let newRegion = document.createElement('p')
+        let newDesc = document.createElement('p')
+        let price = document.createElement('p')
         let elementArr = [newName,newImage,newYear,newGrapes,newCountry,newRegion,newDesc,price]
         for (let element of elementArr) {
             newDiv.appendChild(element)
         }
         newName.innerText = data[i].name
         newImage.src = data[i].picture
-        newYear.innerText = data[i].year
-        newGrapes.innerText = data[i].grapes
-        newCountry.innerText = data[i].country
-        newRegion.innerText = data[i].rergion
-        newDesc.innerText = data[i].description
-        price.innerText = data[i].price
+        newYear.innerText = 'Year: ' + data[i].year
+        newGrapes.innerText = 'Grapes: ' + data[i].grapes
+        newCountry.innerText = 'Country: ' + data[i].country
+        newRegion.innerText = 'Region: ' + data[i].region
+        newDesc.innerText = 'Description: ' + data[i].description
+        price.innerText = 'Price: ' + data[i].price
         newDiv.classList.add("winediv")
         document.querySelector('.wineinfo').appendChild(newDiv)
     }

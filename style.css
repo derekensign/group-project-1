@@ -6,14 +6,32 @@ body {
     background-image: url("./Image/background\ bw.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-}
-img {
-    opacity: 0.5;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
 }
 
+
+.wineinfo {
+    display: flex;
+    
+}
 
 .winediv {
-    border: 2px solid red;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    text-align: left;
+}
+
+.winediv img {
+    width: 100px;
+    height: 200px;
+}
+
+.winediv h5, p {
+    margin: 0;
 }
 
 .main {

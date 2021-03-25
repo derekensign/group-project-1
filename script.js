@@ -19,7 +19,6 @@ addWineForm.addEventListener('submit', (event) => {
     }
 
     addWine(addWineSubmit)
-    getWines()
     //clear form
     document.getElementById('addWine').reset()
     event.preventDefault()
@@ -112,24 +111,61 @@ const getWineById = async id => {
     let data = await response.json()
 }
 
-const addWine = async ([name=required('name'), year=required('year'), grapes=required('Grapes'), country=required('Country'), region=required('Region'), description=required('description'), picture='N/A', price=0]) => {
-    let response = await fetch('http://myapi-profstream.herokuapp.com/api/21a11f/wines', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            "name": name,
-            "year": year,
-            "grapes": grapes,
-            "country": country,
-            "region": region,
-            "description": description,
-            "picture": picture,
-            "price": price
+const addWine = async ([name, year, grapes, country, region, description, picture, price]) => {
+    try {
+        let response = await fetch('http://myapi-profstream.herokuapp.com/api/21a11f/wines', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "name": name,
+                "year": year,
+                "grapes": grapes,
+                "country": country,
+                "region": region,
+                "description": description,
+                "picture": picture,
+                "price": price
+            })
         })
-    })
-}
+        getWines()
+    } catch (error) {
+        console.log(error.message)
+    }
+    // let arr = [name, year, grapes, country, region, description, picture, price]
+    // let errorStatus = false
+    // for(let i of arr) {
+    //     if(i === '') {
+    //         alert('All fields must have input to add a new wine!')
+    //         errorStatus = true
+    //         break
+    //     }
+    // }
+    // if(arr[1] !== typeof(num)) {
+    //     console.log('not a number')
+    //     errorStatus = true
+    // }
+    // // Make sure all fields are have input if not dont post
+    // if(!errorStatus) {
+    //     let response = await fetch('http://myapi-profstream.herokuapp.com/api/21a11f/wines', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //             "name": name,
+    //             "year": year,
+    //             "grapes": grapes,
+    //             "country": country,
+    //             "region": region,
+    //             "description": description,
+    //             "picture": picture,
+    //             "price": price
+    //         })
+    //     })
+    }
+//}
 
 const deleteWineById = async id => {
     let response = await fetch(`http://myapi-profstream.herokuapp.com/api/21a11f/wines/${id}`, {

@@ -76,7 +76,6 @@ const getWines = async () => {
             const winePriceModal = document.querySelector('.pricemodal')
             const deleteButton = document.querySelector('.deletewine')
             const editButton = document.querySelector('.editwine')
-            const backButton = document.querySelector('.backtodetails')
             const modalDetails = document.querySelector('.detail-content')
             const modalForm = document.querySelector('.modal-form-container')
             wineTitleModal.innerText = data[i].name
@@ -162,13 +161,8 @@ const editWineById = async id => {
     let response = await fetch(`http://myapi-profstream.herokuapp.com/api/21a11f/wines/${id}`)
     let data = await response.json()
 
-    console.log(data)
-
-    let formElements = document.getElementsByClassName('editforminput')
-
-    console.log(formElements)
-
-    console.log(data.name)
+    const backButton = document.querySelector('.backtodetails')
+    const updateButton = document.querySelector('#updatewine')
 
     document.getElementById("winename").value = data.name
     document.getElementById("wineyear").value = data.year
@@ -179,11 +173,44 @@ const editWineById = async id => {
     document.getElementById("winepic").value = data.picture
     document.getElementById("wineprice").value = data.price
 
- 
-    console.log(formElements[0])
+    updateButton.onclick = () => {
 
-    // location.reload()
+        pushArr = [id, document.getElementById("winename").value,
+        document.getElementById("wineyear").value,
+        document.getElementById("winegrapes").value,
+        document.getElementById("winecountry").value,
+        document.getElementById("wineregion").value,
+        document.getElementById("winedesc").value,
+        document.getElementById("winepic").value,
+        document.getElementById("wineprice").value]
+
+        debugger
+
+        putWines(pushArr)
+    }
+
 }
 
+putWines = async ([id, name, year, grapes, country, region, description, picture, price]) => {
 
+    let response = await fetch(`http://myapi-profstream.herokuapp.com/api/21a11f/wines/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "name": name,
+            "year": year,
+            "grapes": grapes,
+            "country": country,
+            "region": region,
+            "description": description,
+            "picture": picture,
+            "price": price
+        })
+    })
+
+    // getWines()
+
+}
 getWines()

@@ -75,6 +75,10 @@ const getWines = async () => {
             const wineDescModal = document.querySelector('.descriptionmodal')
             const winePriceModal = document.querySelector('.pricemodal')
             const deleteButton = document.querySelector('.deletewine')
+            const editButton = document.querySelector('.editwine')
+            const backButton = document.querySelector('.backtodetails')
+            const modalDetails = document.querySelector('.detail-content')
+            const modalForm = document.querySelector('.modal-form-container')
             wineTitleModal.innerText = data[i].name
             wineImageModal.src = data[i].picture
             wineYearModal.innerText = 'Year: ' + data[i].year
@@ -91,6 +95,15 @@ const getWines = async () => {
             deleteButton.onclick = () => {
                 deleteWineById(data[i].id)
             }
+            editButton.onclick = () => {
+                modalDetails.classList.add('hidden')
+                modalForm.classList.remove('hidden')
+                editWineById(data[i].id)
+            }
+            // backButton.onclick = () => {
+            //     modalDetails.classList.remove('hidden')
+            //     modalForm.classList.add('hidden')
+            // }
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = event => {
             if (event.target == modal) {
@@ -101,10 +114,6 @@ const getWines = async () => {
     }
 }
 
-const getWineById = async id => {
-    let response = await fetch(`http://myapi-profstream.herokuapp.com/api/21a11f/wines/${id}`)
-    let data = await response.json()
-}
 
 const addWine = async ([name, year, grapes, country, region, description, picture, price]) => {
     let arr = [name, year, grapes, country, region, description, picture, price]
@@ -147,6 +156,23 @@ const deleteWineById = async id => {
         method: 'DELETE'
     })
     location.reload()
+}
+
+const editWineById = async id => {
+    let response = await fetch(`http://myapi-profstream.herokuapp.com/api/21a11f/wines/${id}`)
+    let data = await response.json()
+
+    console.log(data)
+
+    let formElements = document.getElementsByClassName('editforminput')
+
+    console.log(formElements)
+
+    for(let i = 0; i < data.length; i++) {
+        formElements[i].value = data[i].
+        console.log(formElements[i].value)
+    // location.reload()
+    }
 }
 
 getWines()

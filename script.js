@@ -116,10 +116,6 @@ const addWine = async ([name, year, grapes, country, region, description, pictur
             break
         }
     }
-    if(arr[1] !== typeof(0) || arr[7] !== typeof(0)) {
-        alert('Year and price must be a Number!')
-        errorStatus = true
-    }
     if(!errorStatus) {
     try {
         let response = await fetch('http://myapi-profstream.herokuapp.com/api/21a11f/wines', {

@@ -9,29 +9,36 @@
 </head>
     <body>
         
+
+
         <div class='top'>
             <h1>INDEX OF ALL WINES</h1>
             <div class="buttons">
             <button class="allwines">ALL WINES</button>
-            <button class='createawine' onClick="document.getElementById('addWine').scrollIntoView();">CREATE A WINE</button>
+            <button class='createawine' onClick="document.getElementById('addWine').scrollIntoView();">ADD A WINE</button>
              </div> 
         </div>
         
         <div class="wineinfo">   
         </div>
+
+        <div class ="loader-wrapper hidden">
+            <span class="loader">
+            </span>
+        </div>
     
         <div class="create-wine-form">
             <h2>NEW WINE DETAILS</h2>
             <div class="form-container">
-                <form action="/addWine" method="post" id="addWine" autocomplete="off">
-                <div class="index"><input type="text" name="name" placeholder="Name of Wine"></div>
-                <div class="index"><input type="text" name="year" placeholder="Year"></div>
-                <div class="index"> <input type="text" name="grapes" placeholder="Grape Vine"></div>
-                <div class="index"> <input type="text" name="country" placeholder="Country"></div>
-                <div class="index"> <input type="text" name="region" placeholder="Region"></div>
-                <div class="index"> <input type="text" name="description" placeholder="Description"></div>
-                <div class="index"> <input type="text" name="picture" placeholder="Image URL"></div>
-                <div class="index"><input type="text" name="price" placeholder="Price"></div>
+                <form action="/addWine" method="post" id="addWine" autocomplete="off" required="required">
+                <div class="index"><input type="text" name="name" placeholder="Name of Wine" required="required"></div>
+                <div class="index"><input type="number" name="year" placeholder="Year" required="required"></div>
+                <div class="index"> <input type="text" name="grapes" placeholder="Grape Vine" required="required"></div>
+                <div class="index"> <input type="text" name="country" placeholder="Country" required="required"></div>
+                <div class="index"> <input type="text" name="region" placeholder="Region" required="required"></div>
+                <div class="index"> <input type="text" name="description" placeholder="Description" required="required"></div>
+                <div class="index"> <input type="text" name="picture" placeholder="Image URL" required="required"></div>
+                <div class="index"><input type="number" name="price" placeholder="Price" required="required"></div>
             </div>
             <div class="index2"> <input type="submit" value="Add Wine" class='submitformbtn'></div>
                </form>

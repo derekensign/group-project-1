@@ -111,24 +111,6 @@ const getWineById = async id => {
 }
 
 const addWine = async ([name, year, grapes, country, region, description, picture, price]) => {
-    let arr = [name, year, grapes, country, region, description, picture, price]
-    let errorStatus = false
-    // loop through arr above and check that their value is not blank
-    for(let i of arr) {
-        //if it is break the loop and give the user a alert telling them the error
-        if(i === '') {
-            alert('All fields must have input to add a new wine!')
-            errorStatus = true
-            break
-        }
-        if(i !== typeof Number) {
-            alert('Year and Price must be a number!')
-            errorStatus = true
-            break
-        }
-    }
-    //only run if all fields are filled in
-    if(!errorStatus) {
     try {
         let response = await fetch('http://myapi-profstream.herokuapp.com/api/21a11f/wines', {
             method: 'POST',
@@ -148,7 +130,6 @@ const addWine = async ([name, year, grapes, country, region, description, pictur
         })
     } catch (error) {
         console.log('gggggg')
-        }
     }
     getWines()
 }

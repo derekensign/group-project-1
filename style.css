@@ -175,8 +175,20 @@ input {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
+}
 
+/* remove incrementing arrows from number input field */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* remove incrementing arrows from number input field */
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 
 
 

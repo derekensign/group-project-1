@@ -8,12 +8,12 @@
     <script src='script.js' defer></script>
 </head>
     <body>
-        <h1>INDEX OF ALL WINES</h1>
-    
+        
         <div class='top'>
+            <h1>INDEX OF ALL WINES</h1>
             <div class="buttons">
             <button class="allwines">ALL WINES</button>
-            <button onClick="document.getElementById('addWine').scrollIntoView();">CREATE A WINE</button>
+            <button class='createawine' onClick="document.getElementById('addWine').scrollIntoView();">CREATE A WINE</button>
              </div> 
         </div>
         
@@ -25,15 +25,15 @@
             <div class="form-container">
                 <form action="/addWine" method="post" id="addWine" autocomplete="off">
                 <div class="index"><input type="text" name="name" placeholder="Name of Wine"></div>
-                <div class="index"><input type="text" name="year" placeholder="2010"></div>
-                <div class="index"> <input type="text" name="grapes" placeholder="Pinot Noir"></div>
-                <div class="index"> <input type="text" name="country" placeholder="France"></div>
-                <div class="index"> <input type="text" name="region" placeholder="Burgundy"></div>
+                <div class="index"><input type="text" name="year" placeholder="Year"></div>
+                <div class="index"> <input type="text" name="grapes" placeholder="Grape Vine"></div>
+                <div class="index"> <input type="text" name="country" placeholder="Country"></div>
+                <div class="index"> <input type="text" name="region" placeholder="Region"></div>
                 <div class="index"> <input type="text" name="description" placeholder="Description"></div>
                 <div class="index"> <input type="text" name="picture" placeholder="Image URL"></div>
-                <div class="index"><input type="text" name="price" placeholder="40"></div>
+                <div class="index"><input type="text" name="price" placeholder="Price"></div>
             </div>
-            <div class="index2"> <input type="submit" value="Add Wine"></div>
+            <div class="index2"> <input type="submit" value="Add Wine" class='submitformbtn'></div>
                </form>
         </div>
 

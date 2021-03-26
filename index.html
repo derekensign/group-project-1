@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link href="style.css" rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Wine Index</title>
     <script src='script.js' defer></script>
 </head>
     <body>
@@ -49,16 +49,36 @@
 
         <!-- Modal content -->
             <div class="modal-content">
-                <span class="close">&times;</span>
-                <h1 class='winetitlemodal'>Some text in the Modal..</span></h1>
-                <img src='' class='wineimagemodal'>
-                <p class='wineyearmodal'>0</p>
-                <p class='grapesmodal'></p>
-                <p class='countrymodal'></p>
-                <p class='regionmodal'></p>
-                <p class='descriptionmodal'></p>
-                <p class='pricemodal'></p>
-                <button class='deletewine'>Delete Wine</button>
+                <div class="detail-content">
+                    <span class="close">&times;</span>
+                    <h1 class='winetitlemodal'>Some text in the Modal..</span></h1>
+                    <img src='' class='wineimagemodal'>
+                    <p class='wineyearmodal'>0</p>
+                    <p class='grapesmodal'></p>
+                    <p class='countrymodal'></p>
+                    <p class='regionmodal'></p>
+                    <p class='descriptionmodal'></p>
+                    <p class='pricemodal'></p>
+                    <button class='deletewine'>Delete Wine</button>
+                    <button class='editwine'>Edit Wine</button>
+                </div>
+
+                <div class="modal-form-container hidden">
+                    <span class="close">&times;</span>
+                    <h1 class='winetitlemodal'>Some text in the Modal..</span></h1>
+                    <img src='' class='wineimagemodal'>
+                    <form action="/updateWine" method="put" id="updateWine" autocomplete="off">
+                    <div class="editforminput"><input id="winename" type="text" name="name" placeholder="Name of Wine"></div>
+                    <div class="editforminput"><input id="wineyear" type="number" name="year" placeholder="Year"></div>
+                    <div class="editforminput"> <input id="winegrapes" type="text" name="grapes" placeholder="Grape Vine"></div>
+                    <div class="editforminput"> <input id="winecountry" type="text" name="country" placeholder="Country"></div>
+                    <div class="editforminput"> <input id="wineregion" type="text" name="region" placeholder="Region"></div>
+                    <div class="editforminput"> <input id="winedesc" type="text" name="description" placeholder="Description"></div>
+                    <div class="editforminput"> <input id="winepic" type="text" name="picture" placeholder="Image URL"></div>
+                    <div class="editforminput"><input id="wineprice" type="number" name="price" placeholder="Price"></div>
+                    <div class="index2"> <input type="submit" id="updatewine" value="Update Wine" class='submitformbtn'></div>
+                    <button class='backtodetails'>Back to Details</button>
+                </div>
             </div>
 
         </div>

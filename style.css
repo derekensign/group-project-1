@@ -170,7 +170,14 @@ input {
     color: black;
     text-decoration: none;
     cursor: pointer;
-}
+  }
+
+  .hidden {
+      display:none
+  }
+
+
+
 
 /* remove incrementing arrows from number input field */
 input::-webkit-outer-spin-button,
@@ -223,7 +230,7 @@ input[type=number] {
 
 @keyframes spin {
     0% { transform: rotate(0deg);}
-    100% { transform: rotate(360deg);} */
+    100% { transform: rotate(360deg);} 
 }
 
 

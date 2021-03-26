@@ -168,11 +168,22 @@ const editWineById = async id => {
 
     console.log(formElements)
 
-    for(let i = 0; i < data.length; i++) {
-        formElements[i].value = data[i].
-        console.log(formElements[i].value)
+    console.log(data.name)
+
+    document.getElementById("winename").value = data.name
+    document.getElementById("wineyear").value = data.year
+    document.getElementById("winegrapes").value = data.grapes
+    document.getElementById("winecountry").value = data.country
+    document.getElementById("wineregion").value = data.region
+    document.getElementById("winedesc").value = data.description
+    document.getElementById("winepic").value = data.picture
+    document.getElementById("wineprice").value = data.price
+
+ 
+    console.log(formElements[0])
+
     // location.reload()
-    }
 }
+
 
 getWines()

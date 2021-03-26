@@ -1,4 +1,3 @@
-
 body {
     background-image: url("./Image/background\ bw.jpg");
     background-repeat: no-repeat;
@@ -176,16 +175,50 @@ input {
 
 
 .wineimagemodal {
-    max-width: 500px;
+    max-width: 300px;
     max-height: 400px;
 }
 
+@media screen and (max-width: 600px) {
+    body .wineinfo {
+      width: 400px;
+    }
+    body .create-wine-form{
+        width: 380px;
+    }
+    body input {
+        width: 150px;
+    }
+  }
+
+ .loader-wrapper {
+     width: 600px;
+     height: 520px;
+     display: flex;
+     align-items: center;
+     margin: auto;
+ } 
+
+.loader {
+    display: inline-block;
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin: auto;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);} */
+}
 
 
-
-
-
-
+ .hidden {
+    display: none;
+} 
 
 
 

@@ -33,6 +33,7 @@ document.querySelector('.allwines').addEventListener('click', () => {
 })
 
 const getWines = async () => {
+        document.querySelector('.loader-wrapper').classList.remove('hidden');
     let response = await fetch('http://myapi-profstream.herokuapp.com/api/21a11f/wines')
     let data = await response.json()
     for(let i = 0; i < data.length; i++) {
@@ -57,6 +58,7 @@ const getWines = async () => {
         newDiv.classList.add("winediv")
         document.querySelector('.wineinfo').appendChild(newDiv)
     }
+    document.querySelector('.loader-wrapper').classList.add('hidden');
     
     // Event listener for each div
     let wineDivs = document.querySelectorAll('.winediv')
@@ -121,11 +123,6 @@ const addWine = async ([name, year, grapes, country, region, description, pictur
             errorStatus = true
             break
         }
-        if(i !== typeof Number) {
-            alert('Year and Price must be a number!')
-            errorStatus = true
-            break
-        }
     }
     //only run if all fields are filled in
     if(!errorStatus) {
@@ -161,3 +158,10 @@ const deleteWineById = async id => {
 }
 
 getWines()
+
+
+
+
+
+
+

@@ -24,6 +24,7 @@ console.log(addWineForm)
 
 
 document.querySelector('.allwines').addEventListener('click', () => {
+    //delete last child as long as first child exists
     let wineInfo = document.querySelector('.wineinfo')
     while(wineInfo.firstChild !== null) {
         wineInfo.removeChild(wineInfo.lastChild)
@@ -31,27 +32,28 @@ document.querySelector('.allwines').addEventListener('click', () => {
     getWines()
 })
 
-// Function to require an input if they are adding wine
-const required = varName => {
-    throw new Error(`${varName} is required. `);
-}
-
 const getWines = async () => {
     let response = await fetch('http://myapi-profstream.herokuapp.com/api/21a11f/wines')
     let data = await response.json()
-    console.log(data)
     for(let i = 0; i < data.length; i++) {
+        //Create new html elements and store them to variables
         let newDiv = document.createElement('div')
         let newName = document.createElement('h5')
         let newImage = document.createElement('img')
         let newCountry = document.createElement('p')
+
+        //append the created elements to the created DIV
         newDiv.appendChild(newImage)
         newDiv.appendChild(newName)
         newDiv.appendChild(newCountry)
+
+        //Change the elements display info
         newName.innerText = data[i].name
         newImage.src = data[i].picture
         newCountry.innerText = data[i].country
         
+        // give the created div class of winediv and attach 
+        //it to wineinfo to display it on the screen
         newDiv.classList.add("winediv")
         document.querySelector('.wineinfo').appendChild(newDiv)
     }
@@ -88,6 +90,7 @@ const getWines = async () => {
             span.onclick = () => {
                 modal.style.display = "none";
             }
+            //modal delete button
             deleteButton.onclick = () => {
                 deleteWineById(data[i].id)
             }
@@ -101,6 +104,7 @@ const getWines = async () => {
     }
 }
 
+//pretty sure this is unused
 const getWineById = async id => {
     let response = await fetch(`http://myapi-profstream.herokuapp.com/api/21a11f/wines/${id}`)
     let data = await response.json()
@@ -109,13 +113,21 @@ const getWineById = async id => {
 const addWine = async ([name, year, grapes, country, region, description, picture, price]) => {
     let arr = [name, year, grapes, country, region, description, picture, price]
     let errorStatus = false
+    // loop through arr above and check that their value is not blank
     for(let i of arr) {
+        //if it is break the loop and give the user a alert telling them the error
         if(i === '') {
             alert('All fields must have input to add a new wine!')
             errorStatus = true
             break
         }
+        if(i !== typeof Number) {
+            alert('Year and Price must be a number!')
+            errorStatus = true
+            break
+        }
     }
+    //only run if all fields are filled in
     if(!errorStatus) {
     try {
         let response = await fetch('http://myapi-profstream.herokuapp.com/api/21a11f/wines', {
@@ -135,12 +147,11 @@ const addWine = async ([name, year, grapes, country, region, description, pictur
             })
         })
     } catch (error) {
-        console.log(error.message)
+        console.log('gggggg')
         }
     }
-getWines()
+    getWines()
 }
-//}
 
 const deleteWineById = async id => {
     let response = await fetch(`http://myapi-profstream.herokuapp.com/api/21a11f/wines/${id}`, {
